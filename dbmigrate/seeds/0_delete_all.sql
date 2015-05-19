@@ -1,0 +1,21 @@
+DELETE FROM "mark_measurements";
+DELETE FROM "mark_uncertainty";
+DELETE FROM "comments";
+DELETE FROM "creation_dates";
+DELETE FROM "mark_horizontal";
+DELETE FROM "mark_vertical";
+DELETE FROM "mark_coordinates";
+DELETE FROM "mark_name";
+DELETE FROM "mark_description";
+DELETE FROM "adjustment";
+DELETE FROM "mark_status";
+DELETE FROM "name_type";
+DELETE FROM "adjustment_type";
+DELETE FROM "v_class";
+DELETE FROM "v_order";
+DELETE FROM "v_tech";
+DELETE FROM "h_class";
+DELETE FROM "h_order";
+DELETE FROM "h_tech";
+DELETE FROM "datum";
+

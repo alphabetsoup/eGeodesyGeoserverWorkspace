@@ -1,0 +1,62 @@
+<featureType>
+  <id>FeatureTypeInfoImpl--5891fa0:14d6ac63b9c:-8000</id>
+  <name>sites_view</name>
+  <nativeName>sites_view</nativeName>
+  <namespace>
+    <id>geo_namespace</id>
+  </namespace>
+  <title>sites_view</title>
+  <keywords>
+    <string>features</string>
+    <string>sites_view</string>
+  </keywords>
+  <srs>EPSG:4283</srs>
+  <nativeBoundingBox>
+    <minx>141.22389</minx>
+    <maxx>147.502382</maxx>
+    <miny>-38.333746</miny>
+    <maxy>-35.100007</maxy>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>141.22389</minx>
+    <maxx>147.502382</maxx>
+    <miny>-38.333745999081835</miny>
+    <maxy>-35.10000699911202</maxy>
+    <crs>GEOGCS[&quot;WGS84(DD)&quot;, 
+  DATUM[&quot;WGS84&quot;, 
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], 
+  PRIMEM[&quot;Greenwich&quot;, 0.0], 
+  UNIT[&quot;degree&quot;, 0.017453292519943295], 
+  AXIS[&quot;Geodetic longitude&quot;, EAST], 
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <metadata>
+    <entry key="JDBC_VIRTUAL_TABLE">
+      <virtualTable>
+        <name>sites_view</name>
+        <sql>select concat(&apos;site_&apos;,mark_description.mark_id) as gid, mark_description.mark_id, mark_description.status, mark_name.nine_fig, mark_name.mark_name,&#xd;
+ST_SETSRID(ST_POINT(mark_coordinates.longitude, mark_coordinates.latitude), 4283) as gda94_loc&#xd;
+from mark_description &#xd;
+join mark_coordinates on mark_coordinates.mark_id = mark_description.mark_id&#xd;
+join mark_name on mark_name.mark_id = mark_description.mark_id
+</sql>
+        <escapeSql>false</escapeSql>
+        <geometry>
+          <name>gda94_loc</name>
+          <type>Geometry</type>
+          <srid>-1</srid>
+        </geometry>
+      </virtualTable>
+    </entry>
+  </metadata>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl--bf405e1:14d6a56768d:-8000</id>
+  </store>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

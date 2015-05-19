@@ -1,0 +1,18 @@
+INSERT INTO "h_tech"
+("h_tech","h_tech_txt")
+VALUES
+('GS','GPS (SINGLE POINT)'),
+('GD','GPS (DIFFERENTIAL)'),
+('GK','GPS (KINEMATICS)'),
+('TG','TRIANGULATION'),
+('I','INTERSECTION'),
+('RS','RESECTION'),
+('T','TRAVERSE'),
+('C','CADASTRAL'),
+('P','PLOT'),
+('D','DIGITISED'),
+('U','UNKNOWN'),
+('TF','TRANSFORMED'),
+('R','RADIATION'),
+('UR','UNCHECKED RADIATION'),
+('ADJ','ADJUSTMENT');

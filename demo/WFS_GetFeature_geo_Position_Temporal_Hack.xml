@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" 
+                version="1.1.0" 
+                xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.2" 
+                xmlns:gml="http://www.opengis.net/gml/3.2" 
+                xmlns:wfs="http://www.opengis.net/wfs" 
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:ogc="http://www.opengis.net/ogc"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ows="http://www.opengis.net/ows"
+                xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
+   <wfs:Query typeName="geo:Position">
+      <ogc:Filter>
+        <ogc:PropertyIsGreaterThanOrEqualTo>
+          <ogc:PropertyName>geo:history/geo:CoordinateInstance/gml:validTime/gml:TimeInstant/gml:timePosition</ogc:PropertyName>
+          <ogc:Function name="dateParse">
+            <ogc:Literal>yyyy-MM-dd</ogc:Literal>
+            <ogc:Literal>2015-01-03</ogc:Literal>
+          </ogc:Function>
+        </ogc:PropertyIsGreaterThanOrEqualTo>
+      </ogc:Filter>
+  </wfs:Query>
+</wfs:GetFeature>

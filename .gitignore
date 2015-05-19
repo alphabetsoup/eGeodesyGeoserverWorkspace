@@ -1,0 +1,12 @@
+README.rst
+global.xml
+gwc-gs.xml
+gwc-layers/
+gwc/
+logging.xml
+logs/
+security/
+styles/
+wcs.xml
+wfs.xml
+wms.xml
