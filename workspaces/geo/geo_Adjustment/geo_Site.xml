@@ -57,15 +57,15 @@
     <typeMappings>
         <FeatureTypeMapping>
             <sourceDataStore>surveymarks</sourceDataStore>
-            <sourceType>positions_simple</sourceType>
-            <targetElement>geo:Position</targetElement>
+            <sourceType>sites_simple</sourceType>
+            <targetElement>geo:Site</targetElement>
             <attributeMappings>
                 <AttributeMapping>
                     <targetAttribute>
-                        geo:Position
+                        geo:Site
                     </targetAttribute>
                     <idExpression>
-                        <OCQL>ID</OCQL>
+                        <OCQL>gid</OCQL>
                     </idExpression>
                 </AttributeMapping>
                 <AttributeMapping>
@@ -73,41 +73,24 @@
                         gml:identifier
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>IDENTIFIER</OCQL>
+                        <OCQL>nine_fig</OCQL>
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeSpace</name>
-                        <value>'urn:qld-gov-au:egeodesy'</value>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_site-nine-figure-number'</value>
                     </ClientProperty>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>
-                        geo:atNode
-                    </targetAttribute>
-                    <clientProperty>
-                        <name>xlink</name>
-                        <value></value>
-                    </clientProperty>
-                </AttributeMapping>
-                <AttributeMapping>
-                    <targetAttribute>
-                        geo:history/geo:CoordinateInstance/geo:coordinates
+                        geo:type
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>strConCat(easting, strConCat(' ', strConCat(northing, strConCat(' ', zone))))</OCQL>
+                        <OCQL>name_type_txt</OCQL>
                     </sourceExpression>
                     <ClientProperty>
-                        <name>uomLabels</name>
-                        <value>'m m z'</value>
+                        <name>codeSpace</name>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_site-type'</value>
                     </ClientProperty>
-                </AttributeMapping>
-                <AttributeMapping>
-                    <targetAttribute>
-                        geo:history/geo:CoordinateInstance/gml:validTime/gml:TimeInstant/gml:timePosition
-                    </targetAttribute>
-                    <sourceExpression>
-                        <OCQL>date_edit</OCQL>
-                    </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>
@@ -118,7 +101,7 @@
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeSpace</name>
-                        <value>'urn:xml-gov-au:icsm:egeodesy:geodesyml_position-status'</value>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_position-status'</value>
                     </ClientProperty>
                 </AttributeMapping>
                 <AttributeMapping>
@@ -126,7 +109,7 @@
                         geo:Status/geo:currentStatus/gml:validTime/gml:TimeInstant/gml:timePosition
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>date_edit</OCQL>
+                        <OCQL>used_date</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
             </attributeMappings>

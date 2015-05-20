@@ -1,0 +1,13 @@
+<dataStore>
+    <id>geo_Site_datastore</id>
+    <name>geo_Site</name>
+    <enabled>true</enabled>
+    <workspace>
+        <id>geo_workspace</id>
+    </workspace>
+    <connectionParameters>
+        <entry key="namespace">urn:xml-gov-au:icsm:egeodesy:0.2</entry>
+        <entry key="url">file:workspaces/geo/geo_Site/geo_Site.xml</entry>
+        <entry key="dbtype">app-schema</entry>
+    </connectionParameters>
+</dataStore>

@@ -52,8 +52,6 @@ create view positions_simple as
     mc.datum_code,
     mc.technique,
     mc.organisation,
-    mc.date_surv,
-    mc.date_edit,
     mc.h_order,
     mc.best_coords,
     mc.ellipsoid_height,
@@ -74,7 +72,7 @@ create view positions_simple as
 
 create view adjustments_simple as
 (
-    select concat('position_',mc.mark_coord_id) as gid, 
+    select concat('adj_',a.adj_id) as gid, 
     a.adj_id,
     a.adj_date,
     a.adj_d_code,
@@ -92,11 +90,12 @@ create view adjustments_simple as
     a.adj_type, 
     at.adj_type_txt,
 
-    ST_SETSRID( ST_Extent(p.srs_loc), datum.d_epsg_code) as srs_envelope
+    ST_SETSRID( ST_Extent(ST_POINT(mc.longitude,mc.latitude)), datum.d_epsg_code) as srs_envelope
 
     from adjustment as a
 
-    join positions_simple as p on p.adj_id = a.adj_id
+    left join mark_coordinates as mc on mc.adj_id = a.adj_id
     join datum on datum.d_code = a.adj_d_code
-    join adjustment_type as at on a.adj_type = at.adj_type
+    inner join adjustment_type as at on at.adj_type = a.adj_type
+    group by a.adj_id, at.adj_type_txt, datum.d_epsg_code
 );
