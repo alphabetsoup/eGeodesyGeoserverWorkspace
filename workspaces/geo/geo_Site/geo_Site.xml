@@ -33,11 +33,11 @@
                 </Parameter>
                 <Parameter>
                     <name>user</name>
-                    <value>postgis</value>
+                    <value>postgres</value>
                 </Parameter>
                 <Parameter>
                     <name>passwd</name>
-                    <value></value>
+                    <value>postgres</value>
                 </Parameter>
                 <Parameter>
                     <name>Expose primary keys</name>
@@ -77,7 +77,7 @@
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeSpace</name>
-                        <value>'urn:vic-gov-au:egeodesy'</value>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_site-nine-figure-number'</value>
                     </ClientProperty>
                 </AttributeMapping>
                 <AttributeMapping>
@@ -85,31 +85,23 @@
                         geo:type
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>type</OCQL>
+                        <OCQL>name_type_txt</OCQL>
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeSpace</name>
-                        <value>'urn:vic-gov-au:egeodesy:site-type'</value>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_site-type'</value>
                     </ClientProperty>
-                </AttributeMapping>
-                <AttributeMapping>
-                    <targetAttribute>
-                        geo:history/geo:CoordinateInstance/gml:validTime/gml:TimeInstant/gml:timePosition
-                    </targetAttribute>
-                    <sourceExpression>
-                        <OCQL>COORDINATEDATE</OCQL>
-                    </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>
                         geo:Status/geo:currentStatus/geo:statusCode
                       </targetAttribute>
                     <sourceExpression>
-                        <OCQL>STATUSCODE</OCQL>
+                        <OCQL>status_txt</OCQL>
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeSpace</name>
-                        <value>'urn:xml-gov-au:icsm:egeodesy:geodesyml_position-status'</value>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_position-status'</value>
                     </ClientProperty>
                 </AttributeMapping>
                 <AttributeMapping>
@@ -117,7 +109,7 @@
                         geo:Status/geo:currentStatus/gml:validTime/gml:TimeInstant/gml:timePosition
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>STATUSDATE</OCQL>
+                        <OCQL>used_date</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
             </attributeMappings>

@@ -33,11 +33,11 @@
                 </Parameter>
                 <Parameter>
                     <name>user</name>
-                    <value>postgis</value>
+                    <value>postgres</value>
                 </Parameter>
                 <Parameter>
                     <name>passwd</name>
-                    <value></value>
+                    <value>postgres</value>
                 </Parameter>
                 <Parameter>
                     <name>Expose primary keys</name>
@@ -57,7 +57,7 @@
     <typeMappings>
         <FeatureTypeMapping>
             <sourceDataStore>surveymarks</sourceDataStore>
-            <sourceType>geo_Position</sourceType>
+            <sourceType>positions_simple</sourceType>
             <targetElement>geo:Position</targetElement>
             <attributeMappings>
                 <AttributeMapping>
