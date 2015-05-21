@@ -1,7 +1,7 @@
 <featureType>
-    <id>geo_Site_featuretype</id>
-    <name>Site</name>
-    <nativeName>Site</nativeName>
+    <id>geo_Adjustment_featuretype</id>
+    <name>Adjustment</name>
+    <nativeName>Adjustment</nativeName>
     <namespace>
         <id>geo_namespace</id>
     </namespace>
@@ -23,7 +23,7 @@
         <entry key="cachingEnabled">false</entry>
     </metadata>
     <store class="dataStore">
-        <id>geo_Site_datastore</id>
+        <id>geo_Adjustment_datastore</id>
     </store>
     <maxFeatures>0</maxFeatures>
     <numDecimals>0</numDecimals>

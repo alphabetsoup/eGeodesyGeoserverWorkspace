@@ -56,6 +56,7 @@
     </targetTypes>
     <typeMappings>
         <FeatureTypeMapping>
+            <mappingName>geo:Node</mappingName>
             <sourceDataStore>surveymarks</sourceDataStore>
             <sourceType>nodes_simple</sourceType>
             <targetElement>geo:Node</targetElement>
@@ -70,10 +71,30 @@
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>
+                        gml:name
+                    </targetAttribute>
+                    <sourceExpression>
+                        <OCQL>gid</OCQL>
+                    </sourceExpression>
+                    <ClientProperty>
+                        <name>codeSpace</name>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_node-name'</value>
+                    </ClientProperty>
+                </AttributeMapping>
+                <AttributeMapping>
+                    <targetAttribute>
+                        FEATURE_LINK
+                    </targetAttribute>
+                    <sourceExpression>
+                        <OCQL>node_id</OCQL>
+                    </sourceExpression>
+                </AttributeMapping>
+                <AttributeMapping>
+                    <targetAttribute>
                         geo:aggregationType
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>'campaign'</OCQL>
+                        <OCQL>adj_type_txt</OCQL>
                     </sourceExpression>
                     <ClientProperty>
                         <name>codeSpace</name>

@@ -11,6 +11,11 @@
             <uri>urn:xml-gov-au:icsm:egeodesy:0.2</uri>
         </Namespace>
     </namespaces>
+    <!--
+    <includedTypes>
+         <Include>geo_CoordinateInstance.xml</Include>
+    </includedTypes>
+    -->
     <sourceDataStores>
         <DataStore>
             <id>surveymarks</id>
@@ -64,31 +69,25 @@
                     <targetAttribute>
                         geo:Position
                     </targetAttribute>
+                    <ClientProperty>
+                        <name>srsName</name>
+                        <value>strConCat('urn:ogc:def:crs:EPSG:6.9:',d_epsg_code)</value>
+                    </ClientProperty>
                     <idExpression>
-                        <OCQL>ID</OCQL>
+                        <OCQL>gid</OCQL>
                     </idExpression>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>
-                        gml:identifier
+                        geo:atNode/geo:Node
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>IDENTIFIER</OCQL>
+                        <OCQL>at_node</OCQL>
+                        <linkElement>geo:Node</linkElement>
+                        <linkField>FEATURE_LINK</linkField>
                     </sourceExpression>
-                    <ClientProperty>
-                        <name>codeSpace</name>
-                        <value>'urn:qld-gov-au:egeodesy'</value>
-                    </ClientProperty>
                 </AttributeMapping>
-                <AttributeMapping>
-                    <targetAttribute>
-                        geo:atNode
-                    </targetAttribute>
-                    <clientProperty>
-                        <name>xlink</name>
-                        <value></value>
-                    </clientProperty>
-                </AttributeMapping>
+                <!--
                 <AttributeMapping>
                     <targetAttribute>
                         geo:history/geo:CoordinateInstance/geo:coordinates
@@ -109,6 +108,7 @@
                         <OCQL>date_edit</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
+                -->
                 <AttributeMapping>
                     <targetAttribute>
                         geo:Status/geo:currentStatus/geo:statusCode
