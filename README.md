@@ -7,6 +7,10 @@ Pull this repository:
 
     git clone https://github.com/alphabetsoup/eGeodesyGeoserverWorkspace.git
 
+Set the permissions to all-write so that Geoserver can write to the workspace.
+
+    sudo chmod -R 777 eGeodesyGeoserverWorkspace/
+
 Assign the resultant directory eGeodesyGeoserverWorkspace as the current workspace in Geoserver. To do this, locate the web.xml file usually at the below location:
 
     cd /var/lib/tomcat7/webapps/geoserver/WEB-INF/
