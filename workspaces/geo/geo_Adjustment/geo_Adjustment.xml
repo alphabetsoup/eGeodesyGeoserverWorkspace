@@ -127,12 +127,12 @@
                     <sourceExpression>
                         <OCQL>dof</OCQL>
                     </sourceExpression>
-                    <isMultiple>true</isMultiple>
                     <ClientProperty>
                         <name>codeSpace</name>
                         <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_adjustment-dof'</value>
                     </ClientProperty>
                 </AttributeMapping>
+                <!--
                 <AttributeMapping>
                     <targetAttribute>
                         geo:results/geo:adjustmentValue[2]
@@ -140,7 +140,6 @@
                     <sourceExpression>
                         <OCQL>chi_square</OCQL>
                     </sourceExpression>
-                    <isMultiple>true</isMultiple>
                     <ClientProperty>
                         <name>codeSpace</name>
                         <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_adjustment-chi-square'</value>
@@ -153,7 +152,6 @@
                     <sourceExpression>
                         <OCQL>sigma_zero</OCQL>
                     </sourceExpression>
-                    <isMultiple>true</isMultiple>
                     <ClientProperty>
                         <name>codeSpace</name>
                         <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_adjustment-sigma-zero'</value>
@@ -166,7 +164,6 @@
                     <sourceExpression>
                         <OCQL>lower_limit</OCQL>
                     </sourceExpression>
-                    <isMultiple>true</isMultiple>
                     <ClientProperty>
                         <name>codeSpace</name>
                         <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_adjustment-lower-limit'</value>
@@ -179,12 +176,12 @@
                     <sourceExpression>
                         <OCQL>upper_limit</OCQL>
                     </sourceExpression>
-                    <isMultiple>true</isMultiple>
                     <ClientProperty>
                         <name>codeSpace</name>
                         <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_adjustment-upper-limit'</value>
                     </ClientProperty>
                 </AttributeMapping>
+                -->
                 <AttributeMapping>
                     <targetAttribute>
                         geo:adjustmentProcess/gml:scope

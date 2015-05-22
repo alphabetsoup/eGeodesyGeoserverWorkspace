@@ -5,8 +5,8 @@
     <namespace>
         <id>geo_namespace</id>
     </namespace>
-    <title>... TITLE ...</title>
-    <abstract>... ABSTRACT ...</abstract>
+    <title>Sites</title>
+    <abstract>A Site is the fundamental data type that represents the physical presence of a geodetic mark or observing system.</abstract>
     <srs>EPSG:4326</srs>
     <latLonBoundingBox>
         <minx>-180</minx>
