@@ -1,23 +1,23 @@
-  DROP TABLE "mark_coordinates";
-  DROP TABLE "comments";
-  DROP TABLE "creation_dates";
-  DROP TABLE "mark_measurements";
-  DROP TABLE "mark_uncertainty";
-  DROP TABLE "mark_horizontal";
-  DROP TABLE "mark_vertical";
-  DROP TABLE "mark_name";
-  DROP TABLE "mark_description";
-  DROP TABLE "adjustment";
-  DROP TABLE "adjustment_type";
-  DROP TABLE "v_class";
-  DROP TABLE "v_order";
-  DROP TABLE "v_tech";
-  DROP TABLE "h_class";
-  DROP TABLE "h_order";
-  DROP TABLE "h_tech";
-  DROP TABLE "datum";
-  DROP TABLE "name_type";
-  DROP TABLE "mark_status";
+  DROP TABLE "mark_coordinates" CASCADE;
+  DROP TABLE "comments" CASCADE;
+  DROP TABLE "creation_dates" CASCADE;
+  DROP TABLE "mark_measurements" CASCADE;
+  DROP TABLE "mark_uncertainty" CASCADE;
+  DROP TABLE "mark_horizontal" CASCADE;
+  DROP TABLE "mark_vertical" CASCADE;
+  DROP TABLE "mark_name" CASCADE;
+  DROP TABLE "mark_description" CASCADE;
+  DROP TABLE "adjustment" CASCADE;
+  DROP TABLE "adjustment_type" CASCADE;
+  DROP TABLE "v_class" CASCADE;
+  DROP TABLE "v_order" CASCADE;
+  DROP TABLE "v_tech" CASCADE;
+  DROP TABLE "h_class" CASCADE;
+  DROP TABLE "h_order" CASCADE;
+  DROP TABLE "h_tech" CASCADE;
+  DROP TABLE "datum" CASCADE;
+  DROP TABLE "name_type" CASCADE;
+  DROP TABLE "mark_status" CASCADE;
 
 
 

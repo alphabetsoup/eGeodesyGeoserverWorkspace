@@ -3,8 +3,7 @@ global.xml
 gwc-gs.xml
 gwc-layers/
 gwc/
-logging.xml
-logs/
+logs/geoserver.log
 security/
 styles/
 wcs.xml
