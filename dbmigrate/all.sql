@@ -1198,7 +1198,7 @@ create view sites_simple as
     mn.nine_fig, mn.mark_name,
     ms.status_txt, md.used_date,
     nt.name_type_txt,
-    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as srs_loc
+    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as geom
     from mark_description as md
     join mark_name as mn on mn.mark_id = md.mark_id
     join mark_coordinates as mc on mc.mark_id = md.mark_id
@@ -1210,7 +1210,7 @@ create view sites_simple as
 create view sitelogs_simple as
 (
     select concat('sitelog_',md.mark_id) as gid, 
-    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as srs_loc
+    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as geom
     from mark_description as md
     join mark_coordinates as mc on mc.mark_id = md.mark_id
     join datum on datum.d_code = mc.datum_code
@@ -1226,7 +1226,7 @@ create view nodes_simple as
     mc.organisation,
     mc.date_surv, mc.date_edit,
     at.adj_type_txt,
-    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as srs_loc
+    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as geom
     from mark_description as md
     join mark_name as mn on mn.mark_id = md.mark_id
     join mark_coordinates as mc on mc.mark_id = md.mark_id
@@ -1261,7 +1261,7 @@ create view positions_simple as
     mc.pos_uncertainty,
     datum.d_epsg_code,
 
-    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as srs_loc
+    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as geom
 
     from mark_description as md
 
@@ -1295,7 +1295,7 @@ create view adjustments_simple as
     at.adj_type_txt,
     datum.d_epsg_code,
 
-    ST_SETSRID( ST_Extent(ST_POINT(mc.longitude,mc.latitude)), datum.d_epsg_code) as srs_envelope
+    ST_SETSRID( ST_Extent(ST_POINT(mc.longitude,mc.latitude)), datum.d_epsg_code) as geom
 
     from adjustment as a
 
