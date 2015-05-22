@@ -1,7 +1,23 @@
 #GeodesyML Sample Workspace for Geoserver
 
 ##Installation
-First install Geoserver 2.7+ [http://geoserver.org/] and PostGIS [http://postgis.net/install/].
+First install Tomcat7, Geoserver 2.7+ [http://geoserver.org/] as a *.war extension to Tomcat, and PostGIS [http://postgis.net/install/].
+
+Pull this repository:
+
+    git clone https://github.com/alphabetsoup/eGeodesyGeoserverWorkspace.git
+
+Assign the resultant directory eGeodesyGeoserverWorkspace as the current workspace in Geoserver. To do this, locate the web.xml file usually at the below location:
+
+    cd /var/lib/tomcat7/webapps/geoserver/WEB-INF/
+    sudo nano web.xml 
+
+Locate and uncomment the following option, filling in the value with the path to your eGeodesyGeoserverWorkspace clone.
+
+    <context-param>
+        <param-name>GEOSERVER_DATA_DIR</param-name>
+        <param-value>/path/to/eGeodesyGeoserverWorkspace</param-value>
+    </context-param>
 
 Create a PostGIS database:
 
