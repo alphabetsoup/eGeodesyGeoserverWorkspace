@@ -1,7 +1,7 @@
 #GeodesyML Sample Workspace for Geoserver
 
 ##Installation
-First install Tomcat7, Geoserver 2.7+ [http://geoserver.org/] as a *.war extension to Tomcat, and PostGIS [http://postgis.net/install/].
+First install [Tomcat7](http://tomcat.apache.org/), [Geoserver 2.7+](http://geoserver.org/) as a *.war extension to Tomcat, and [PostGIS](http://postgis.net/install/).
 
 Pull this repository:
 
@@ -31,4 +31,4 @@ Then run the scripts in `./dbmigrate/` as follows:
 
 #Usage
 
-To test the queries, log in to the Geoserver web instance (usually at [http://localhost:8080/geoserver/web]), navigate to the Demos page [http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.demo.DemoRequestsPage], select the WFS_GetFeature_geo_Position.xml from the drop-down list and click submit.
+To test the queries, log in to the Geoserver web instance (usually [localhost:8080/geoserver/web](http://localhost:8080/geoserver/web)), navigate to the [Demos page](http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.web.demo.DemoRequestsPage), select the WFS_GetFeature_geo_Position.xml from the drop-down list and click submit.
