@@ -71,8 +71,8 @@
                     </targetAttribute>
                     <ClientProperty>
                         <name>srsName</name>
-                        <value>'urn:ogc:def:crs:EPSG:6.9:4823'</value>
-                        <!--<value>strConCat('urn:ogc:def:crs:EPSG:6.9:',d_epsg_code)</value>-->
+                        <!--<value>'urn:ogc:def:crs:EPSG:6.9:4823'</value>-->
+                        <value>strConCat('urn:ogc:def:crs:EPSG:6.9:',d_epsg_code)</value>
                     </ClientProperty>
                     <idExpression>
                         <OCQL>gid</OCQL>

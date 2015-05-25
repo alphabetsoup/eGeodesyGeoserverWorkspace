@@ -90,6 +90,18 @@
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>
+                        gml:boundedBy/gml:Envelope
+                    </targetAttribute>
+                    <sourceExpression>
+                        <OCQL>geom</OCQL>
+                    </sourceExpression>
+                    <ClientProperty>
+                        <name>codeSpace</name>
+                        <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_adjustment-id'</value>
+                    </ClientProperty>
+                </AttributeMapping>
+                <AttributeMapping>
+                    <targetAttribute>
                         gml:validTime/gml:TimeInstant/gml:timePosition
                     </targetAttribute>
                     <sourceExpression>
