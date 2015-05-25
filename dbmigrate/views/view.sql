@@ -1,6 +1,7 @@
 drop view sites_simple;
 drop view sitelogs_simple;
 drop view positions_simple;
+drop view coordinateinstances_simple;
 drop view nodes_simple;
 drop view adjustments_simple;
 
@@ -54,6 +55,50 @@ create view nodes_simple as
 create view positions_simple as
 (
     select concat('position_',mc.mark_coord_id) as gid, 
+    mc.mark_id as at_node, 
+    md.mark_id, 
+    ms.status_txt, md.date_mga_avail,
+    mc.date_surv, mc.date_edit,
+
+    mc.mark_coord_id, 
+    mc.adj_id as adj_id,
+    mc.latitude,
+    mc.longitude,
+    mc.easting,
+    mc.northing,
+    mc.zone,
+    mc.datum_code,
+    mc.technique,
+    mc.organisation,
+    mc.h_order,
+    mc.best_coords,
+    mc.ellipsoid_height,
+    mc.pos_uncertainty,
+    datum.d_epsg_code,
+
+    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as srs_loc
+
+    from mark_description as md
+
+    join mark_name as mn on mn.mark_id = md.mark_id
+    join mark_coordinates as mc on mc.mark_id = md.mark_id
+    join datum on datum.d_code = mc.datum_code
+    join mark_status as ms on ms.status = md.status
+    join name_type as nt on mn.name_type = nt.name_type
+    join adjustment as a on a.adj_id = mc.adj_id
+    join adjustment_type as at on a.adj_type = at.adj_type
+);
+
+-- coordinateinstances_simple is, for now, a copy of positions_simple with two modifications:
+-- 1) gid begins with coordinateinstance_, the numerical part of the id is the same
+-- 2) new column pid is the foreign key to positions_simple
+-- Both positions_simple and coordinateinstances_simple will later change further, for now,
+-- this is the minimum needed to demonstrate GeoServer feature chaning between positions and
+-- coordinate instances.
+create view coordinateinstances_simple as
+(
+    select concat('coordinateinstance_',mc.mark_coord_id) as gid, 
+    concat('position_',mc.mark_coord_id) as pid, 
     mc.mark_id as at_node, 
     md.mark_id, 
     ms.status_txt, md.date_mga_avail,
