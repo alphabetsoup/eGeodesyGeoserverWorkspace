@@ -21,7 +21,7 @@
                 </Parameter>
                 <Parameter>
                     <name>host</name>
-                    <value>10.7.101.108</value>
+                    <value>localhost</value>
                 </Parameter>
                 <Parameter>
                     <name>port</name>
@@ -29,7 +29,7 @@
                 </Parameter>
                 <Parameter>
                     <name>database</name>
-                    <value>survey_marks</value>
+                    <value>surveymarks</value>
                 </Parameter>
                 <Parameter>
                     <name>user</name>
@@ -37,7 +37,7 @@
                 </Parameter>
                 <Parameter>
                     <name>passwd</name>
-                    <value>admin</value>
+                    <value>postgres</value>
                 </Parameter>
                 <Parameter>
                     <name>Expose primary keys</name>
@@ -62,10 +62,6 @@
             <attributeMappings>
                 <AttributeMapping>
                     <targetAttribute>geo:CoordinateInstance</targetAttribute>
-                    <!-- <ClientProperty> -->
-                    <!--     <name>srsName</name> -->
-                    <!--     <value>strConCat('urn:ogc:def:crs:EPSG:6.9:',d_epsg_code)</value> -->
-                    <!-- </ClientProperty> -->
                     <idExpression>
                         <OCQL>gid</OCQL>
                     </idExpression>
@@ -81,48 +77,9 @@
                         geo:coordinates
                     </targetAttribute>
                     <sourceExpression>
-                        <!-- <OCQL>'34 34'</OCQL> -->
                         <OCQL>srs_loc</OCQL>
                     </sourceExpression>
-                    <!-- <ClientProperty> -->
-                    <!--     <name>uomLabels</name> -->
-                    <!--     <value>'m m z'</value> -->
-                    <!-- </ClientProperty> -->
                 </AttributeMapping>
-                <!-- <AttributeMapping> -->
-                <!--     <targetAttribute> -->
-                <!--         geo:history/geo:CoordinateInstance/gml:validTime/gml:TimeInstant/gml:timePosition -->
-                <!--     </targetAttribute> -->
-                <!--     <sourceExpression> -->
-                <!--         <OCQL>date_edit</OCQL> -->
-                <!--     </sourceExpression> -->
-                <!-- </AttributeMapping> -->
-                <!-- <AttributeMapping> -->
-                <!--     <targetAttribute> -->
-                <!--         geo:Status/geo:currentStatus/geo:statusCode -->
-                <!--       </targetAttribute> -->
-                <!--     <sourceExpression> -->
-                <!--         <OCQL>status_txt</OCQL> -->
-                <!--     </sourceExpression> -->
-                <!--     <ClientProperty> -->
-                <!--         <name>codeSpace</name> -->
-                <!--         <value>'urn:xml&#45;gov&#45;au:icsm:egeodesy:geodesyml_position&#45;status'</value> -->
-                <!--     </ClientProperty> -->
-                <!-- </AttributeMapping> -->
-                <!-- <AttributeMapping> -->
-                <!--     <targetAttribute> -->
-                <!--         geo:Status/geo:currentStatus/gml:validTime/gml:TimeInstant/gml:timePosition -->
-                <!--     </targetAttribute> -->
-                <!--     <sourceExpression> -->
-                <!--         <OCQL>date_edit</OCQL> -->
-                <!--     </sourceExpression> -->
-                <!-- </AttributeMapping> -->
-                <!-- <AttributeMapping> -->
-                <!--     <targetAttribute>geo:history/geo:CoordinateInstance/geo:coordinates</targetAttribute> -->
-                <!--     <sourceExpression> -->
-                <!--         <OCQL>'23 23'</OCQL> -->
-                <!--     </sourceExpression> -->
-                <!-- </AttributeMapping> -->
             </attributeMappings>
         </FeatureTypeMapping>
     </typeMappings>
