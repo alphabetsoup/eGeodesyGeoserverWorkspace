@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" 
+                version="2.0.0" 
+                outputFormat="gml32"
+                xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.2" 
+                xmlns:gml="http://www.opengis.net/gml/3.2" 
+                xmlns:wfs="http://www.opengis.net/wfs/2.0" 
+                xmlns:fes="http://www.opengis.net/fes/2.0" 
+                xmlns:ogc="http://www.opengis.net/ogc"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ows="http://www.opengis.net/ows"
+                xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/2.0/wfs.xsd">
+   <wfs:Query typeNames="geo:Position">
+     <ogc:Filter>
+       <ogc:BBOX>
+        <ogc:PropertyName></ogc:PropertyName>
+        <gml:Box xmlns:gml="http://www.opengis.net/gml" srsName="EPSG:4283">
+        <gml:coordinates>144.461949,-37.033475 144.461950,-37.033473</gml:coordinates>
+        </gml:Box>
+       </ogc:BBOX>
+     </ogc:Filter>
+   </wfs:Query>
+</wfs:GetFeature>

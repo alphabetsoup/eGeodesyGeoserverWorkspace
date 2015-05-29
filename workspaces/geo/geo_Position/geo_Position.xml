@@ -67,9 +67,15 @@
                     <targetAttribute>
                         geo:Position
                     </targetAttribute>
+                    <!--
                     <ClientProperty>
                         <name>srsName</name>
-                        <!--<value>'urn:ogc:def:crs:EPSG:6.9:4823'</value>-->
+                        <value>'urn:ogc:def:crs:EPSG:6.9:4823'</value>
+                        <value>strConCat('http://www.opengis.net/gml/srs/epsg.xml#',d_epsg_code)</value>
+                    </ClientProperty>
+                    -->
+                    <ClientProperty>
+                        <name>otheratt</name>
                         <value>strConCat('urn:ogc:def:crs:EPSG:6.9:',d_epsg_code)</value>
                     </ClientProperty>
                     <idExpression>

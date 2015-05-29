@@ -131,6 +131,7 @@
                     </sourceExpression>
                 </AttributeMapping>
                 -->
+                <!--
                 <AttributeMapping>
                     <targetAttribute>
                         geo:CurrentNodeInstance/geo:Status/geo:currentStatus/geo:statusCode
@@ -158,6 +159,24 @@
                     <sourceExpression>
                         <OCQL>date_mga_avail</OCQL>
                     </sourceExpression>
+                </AttributeMapping>
+                -->
+                <AttributeMapping>
+                    <targetAttribute>
+                        gml:validTime/gml:TimePeriod/gml:beginPosition
+                    </targetAttribute>
+                    <sourceExpression>
+                        <OCQL>date_mga_avail</OCQL>
+                    </sourceExpression>
+                </AttributeMapping>
+                <AttributeMapping>
+                    <targetAttribute>
+                        gml:validTime/gml:TimePeriod/gml:endPosition
+                    </targetAttribute>
+                    <clientProperty>
+                        <name>indeterminatePosition</name>
+                        <value>'unknown'</value>
+                    </clientProperty>
                 </AttributeMapping>
             </attributeMappings>
         </FeatureTypeMapping>

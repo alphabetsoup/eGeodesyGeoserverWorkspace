@@ -80,6 +80,14 @@
                         <OCQL>srs_loc</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
+                <AttributeMapping>
+                    <targetAttribute>
+                        gml:validTime/gml:TimeInstant/gml:timePosition
+                    </targetAttribute>
+                    <sourceExpression>
+                        <OCQL>date_surv</OCQL>
+                    </sourceExpression>
+                </AttributeMapping>
             </attributeMappings>
         </FeatureTypeMapping>
     </typeMappings>
