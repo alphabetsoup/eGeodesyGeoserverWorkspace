@@ -1,13 +1,13 @@
 <dataStore>
-    <id>geo_Adjustment_datastore</id>
-    <name>geo_Adjustment</name>
+    <id>geo_PositionTimeSeries_datastore</id>
+    <name>geo_PositionTimeSeries</name>
     <enabled>true</enabled>
     <workspace>
         <id>geo_workspace</id>
     </workspace>
     <connectionParameters>
         <entry key="namespace">urn:xml-gov-au:icsm:egeodesy:0.2</entry>
-        <entry key="url">file:workspaces/geo/geo_Adjustment/geo_Adjustment.xml</entry>
+        <entry key="url">file:workspaces/geo/geo_PositionTimeSeries/geo_PositionTimeSeries.xml</entry>
         <entry key="dbtype">app-schema</entry>
     </connectionParameters>
 </dataStore>

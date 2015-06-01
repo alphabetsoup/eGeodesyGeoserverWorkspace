@@ -34,7 +34,7 @@ create view sitelogs_simple as
 create view nodes_simple as
 (
     select concat('node_',md.mark_id) as gid, 
-    md.mark_id as at_site, 
+    concat('site_',md.mark_id) as at_site, 
     md.mark_id as node_id, 
     md.mark_id, 
     ms.status_txt, md.date_mga_avail,
@@ -55,7 +55,7 @@ create view nodes_simple as
 create view positions_simple as
 (
     select concat('position_',mc.mark_coord_id) as gid, 
-    mc.mark_id as at_node, 
+    concat('node_',md.mark_id) as at_node, 
     md.mark_id, 
     ms.status_txt, md.date_mga_avail,
     mc.date_surv, mc.date_edit,
