@@ -1245,7 +1245,7 @@ create view nodes_simple as
 
 create view positions_simple as
 (
-    select concat('position_',mc.mark_coord_id) as gid, 
+    select concat('position_',mc.mark_id) as gid, 
     concat('node_',md.mark_id) as at_node, 
     md.mark_id, 
     ms.status_txt, md.date_mga_avail,
@@ -1289,8 +1289,7 @@ create view positions_simple as
 create view coordinateinstances_simple as
 (
     select concat('coordinateinstance_',mc.mark_coord_id) as gid, 
-    concat('position_',mc.mark_coord_id) as pid, 
-    mc.mark_id as at_node, 
+    concat('position_',mc.mark_id) as pid, 
     md.mark_id, 
     ms.status_txt, md.date_mga_avail,
     mc.date_surv, mc.date_edit,
