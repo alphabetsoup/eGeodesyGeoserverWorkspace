@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:GetFeature service="WFS" 
+                version="1.1.0" 
+                outputFormat="gml32"
+                xmlns:geo="urn:xml-gov-au:icsm:egeodesy:0.2" 
+                xmlns:gml="http://www.opengis.net/gml/3.2" 
+                xmlns:wfs="http://www.opengis.net/wfs" 
+                xmlns:ogc="http://www.opengis.net/ogc"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xsi:schemaLocation="http://www.opengis.net/wfs 
+                                    http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
+   <wfs:Query typeName="geo:PositionTimeSeries" aliases="p">
+      <ogc:Filter>
+        <And>
+          <ogc:PropertyIsGreaterThanOrEqualTo>
+            <ogc:PropertyName>geo:history/geo:PositionTimeSlice/gml:validTime/gml:TimeInstant/gml:timePosition</ogc:PropertyName>
+            <ogc:Function name="dateParse">
+              <ogc:Literal>yyyy-MM-dd</ogc:Literal>
+              <ogc:Literal>2014-01-03</ogc:Literal>
+            </ogc:Function>
+          </ogc:PropertyIsGreaterThanOrEqualTo>
+          <ogc:BBOX>
+            <ogc:PropertyName></ogc:PropertyName>
+            <gml:Envelope srsName="http://www.opengis.net/gml/srs/epsg.xml#4283">
+              <gml:lowerCorner>142.46194 -37.03348</gml:lowerCorner>
+              <gml:upperCorner>142.46195 -37.03347</gml:upperCorner>
+            </gml:Envelope>
+          </ogc:BBOX>
+        </And>
+      </ogc:Filter>
+  </wfs:Query>
+</wfs:GetFeature>
+

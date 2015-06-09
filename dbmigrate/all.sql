@@ -571,7 +571,12 @@ VALUES
 insert into "mark_coordinates"
 ("mark_id", "mark_coord_id", "adj_id", "latitude", "longitude", "easting", "northing", "zone", "datum_code", "technique", "organisation", "date_surv", "date_edit", "h_order", "best_coords", "ellipsoid_height", "pos_uncertainty")
 VALUES
-(11328 , 217988 , 1 , -37.033474 , 142.461949 , 657556.442 , 5897041.89 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-14', '25-JUL-14', 3, 'X', 236.0124, .082),
+(11328 , 217988 , 1 , -37.033474 , 142.461949 , 657556.442 , 5897041.89 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-2014', '25-JUL-2014', 3, 'X', 236.0124, .082),
+(11328 , 218357 , 1 , -37.033473 , 142.461950 , 657559.442 , 5897044.89 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-2064', '25-JUL-2064', 3, 'X', 236.1124, .082),
+(11328 , 218358 , 1 , -37.033472 , 142.461951 , 657562.442 , 5897047.89 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-2114', '25-JUL-2114', 3, 'X', 236.2124, .082),
+(11328 , 218359 , 1 , -37.033471 , 142.461952 , 657565.442 , 5897050.89 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-2164', '25-JUL-2164', 3, 'X', 236.3124, .082),
+(11328 , 218360 , 1 , -37.033470 , 142.461953 , 657568.442 , 5897053.89 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-2214', '25-JUL-2214', 3, 'X', 236.4124, .082),
+(11328 , 218361 , 1 , -37.033469 , 142.461954 , 657571.442 , 5897056.89 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-2264', '25-JUL-2264', 3, 'X', 236.5124, .082),
 (11329 , 217989 , 1 , -37.04003 , 142.461905 , 657530.771 , 5896254.25 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-14', '25-JUL-14', 3, 'X', 238.7152, .08),
 (11330 , 217990 , 1 , -37.034921 , 142.464614 , 658206.447 , 5896583.61 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-14', '25-JUL-14', 3, 'X', 251.3207, .079),
 (11331 , 217991 , 1 , -37.031202 , 142.455516 , 656968.422 , 5897753.08 , 54, 'GDA94', 'ADJ', 'OSGV', '25-JUL-14', '25-JUL-14', 3, 'X', 243.7161, .084),
@@ -1186,8 +1191,8 @@ VALUES
 (35246,11821,'AHD',DEFAULT,'5','179.8','U',DEFAULT,DEFAULT,DEFAULT,'OSG',DEFAULT,'X',DEFAULT,DEFAULT);
 drop view sites_simple;
 drop view sitelogs_simple;
-drop view positions_simple;
-drop view coordinateinstances_simple;
+drop view position_timeseries;
+drop view position_timeslice;
 drop view nodes_simple;
 drop view adjustments_simple;
 
@@ -1220,7 +1225,7 @@ create view sitelogs_simple as
 create view nodes_simple as
 (
     select concat('node_',md.mark_id) as gid, 
-    md.mark_id as at_site, 
+    concat('site_',md.mark_id) as at_site, 
     md.mark_id as node_id, 
     md.mark_id, 
     ms.status_txt, md.date_mga_avail,
@@ -1238,42 +1243,49 @@ create view nodes_simple as
     join name_type as nt on mn.name_type = nt.name_type
 );
 
-create view positions_simple as
+create view position_timeseries as
 (
-    select concat('position_',mc.mark_coord_id) as gid, 
-    mc.mark_id as at_node, 
+    select concat('position_',md.mark_id) as gid, 
+    concat('node_',md.mark_id) as at_node, 
     md.mark_id, 
-    ms.status_txt, md.date_mga_avail,
-    mc.date_surv, mc.date_edit,
+    md.date_mga_avail,
 
-    mc.mark_coord_id, 
-    mc.adj_id as adj_id,
-    mc.latitude,
-    mc.longitude,
-    mc.easting,
-    mc.northing,
-    mc.zone,
-    mc.datum_code,
-    mc.technique,
-    mc.organisation,
-    mc.h_order,
-    mc.best_coords,
-    mc.ellipsoid_height,
-    mc.pos_uncertainty,
-    datum.d_epsg_code,
+    (
+        select 
+        datum.d_epsg_code
+        from mark_coordinates as mc
+        join datum on datum.d_code = mc.datum_code
+        where md.mark_id = mc.mark_id
+        order by mc.date_surv desc
+        limit 1
+    ) as d_epsg_code,
 
-    ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code) as geom
+    (
+        select 
+        ms.status_txt
+        from mark_status as ms
+        where md.status = ms.status
+        limit 1
+    ) as status_txt,
+
+    (
+        select 
+        ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code)
+        from mark_coordinates as mc
+        join datum on datum.d_code = mc.datum_code
+        where md.mark_id = mc.mark_id
+        order by mc.date_surv desc
+        limit 1
+    ) as geom
 
     from mark_description as md
 
-    join mark_name as mn on mn.mark_id = md.mark_id
-    join mark_coordinates as mc on mc.mark_id = md.mark_id
-    join datum on datum.d_code = mc.datum_code
-    join mark_status as ms on ms.status = md.status
-    join name_type as nt on mn.name_type = nt.name_type
-    join adjustment as a on a.adj_id = mc.adj_id
-    join adjustment_type as at on a.adj_type = at.adj_type
+    group by md.mark_id
 );
+-- removed joins
+--  join mark_name as mn on mn.mark_id = md.mark_id
+--  join mark_status as ms on ms.status = md.status
+--  join name_type as nt on mn.name_type = nt.name_type
 
 -- coordinateinstances_simple is, for now, a copy of positions_simple with two modifications:
 -- 1) gid begins with coordinateinstance_, the numerical part of the id is the same
@@ -1281,11 +1293,10 @@ create view positions_simple as
 -- Both positions_simple and coordinateinstances_simple will later change further, for now,
 -- this is the minimum needed to demonstrate GeoServer feature chaning between positions and
 -- coordinate instances.
-create view coordinateinstances_simple as
+create view position_timeslice as
 (
     select concat('coordinateinstance_',mc.mark_coord_id) as gid, 
-    concat('position_',mc.mark_coord_id) as pid, 
-    mc.mark_id as at_node, 
+    concat('position_',mc.mark_id) as pid, 
     md.mark_id, 
     ms.status_txt, md.date_mga_avail,
     mc.date_surv, mc.date_edit,

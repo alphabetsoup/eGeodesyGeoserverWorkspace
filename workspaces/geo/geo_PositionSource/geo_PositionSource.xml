@@ -62,11 +62,11 @@
         <FeatureTypeMapping>
             <sourceDataStore>surveymarks</sourceDataStore>
             <sourceType>adjustments_simple</sourceType>
-            <targetElement>geo:Adjustment</targetElement>
+            <targetElement>geo:PositionSource</targetElement>
             <attributeMappings>
                 <AttributeMapping>
                     <targetAttribute>
-                        geo:Adjustment
+                        geo:PositionSource
                     </targetAttribute>
                     <idExpression>
                         <OCQL>gid</OCQL>

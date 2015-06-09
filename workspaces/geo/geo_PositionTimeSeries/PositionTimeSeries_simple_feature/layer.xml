@@ -1,0 +1,12 @@
+<layer>
+  <name>PositionTimeSeries_simple_feature</name>
+  <id>LayerInfoImpl--89285fa:14d8ef09eb1:-7f9a</id>
+  <type>VECTOR</type>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--89285fa:14d8ef09eb1:-7f9b</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

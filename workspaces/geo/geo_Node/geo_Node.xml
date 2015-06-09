@@ -70,6 +70,12 @@
                     </idExpression>
                 </AttributeMapping>
                 <AttributeMapping>
+                    <targetAttribute>FEATURE_LINK[2]</targetAttribute>
+                    <sourceExpression>
+                        <OCQL>gid</OCQL>
+                    </sourceExpression>
+                </AttributeMapping>
+                <AttributeMapping>
                     <targetAttribute>
                         gml:name
                     </targetAttribute>
@@ -80,14 +86,6 @@
                         <name>codeSpace</name>
                         <value>'urn:vic-gov-au:icsm:egeodesy:geodesyml_node-name'</value>
                     </ClientProperty>
-                </AttributeMapping>
-                <AttributeMapping>
-                    <targetAttribute>
-                        FEATURE_LINK
-                    </targetAttribute>
-                    <sourceExpression>
-                        <OCQL>node_id</OCQL>
-                    </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
                     <targetAttribute>
