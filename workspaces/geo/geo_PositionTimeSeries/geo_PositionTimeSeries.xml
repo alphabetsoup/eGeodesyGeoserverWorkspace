@@ -111,7 +111,7 @@
                         geo:Status/geo:currentStatus/gml:validTime/gml:TimeInstant/gml:timePosition
                     </targetAttribute>
                     <sourceExpression>
-                        <OCQL>date_edit</OCQL>
+                        <OCQL>date_mga_avail</OCQL>
                     </sourceExpression>
                 </AttributeMapping>
                 <AttributeMapping>
