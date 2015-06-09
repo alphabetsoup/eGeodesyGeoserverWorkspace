@@ -13,7 +13,7 @@
     </namespaces>
     <sourceDataStores>
         <DataStore>
-            <id>surveymarks</id>
+            <id>position_timeslice</id>
             <parameters>
                 <Parameter>
                     <name>dbtype</name>
@@ -56,8 +56,8 @@
     </targetTypes>
     <typeMappings>
         <FeatureTypeMapping>
-            <sourceDataStore>surveymarks</sourceDataStore>
-            <sourceType>positions_simple</sourceType>
+            <sourceDataStore>position_timeslice</sourceDataStore>
+            <sourceType>position_timeslice</sourceType>
             <targetElement>geo:Position</targetElement>
             <attributeMappings>
                 <AttributeMapping>

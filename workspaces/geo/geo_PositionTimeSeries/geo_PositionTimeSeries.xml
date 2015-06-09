@@ -16,7 +16,7 @@
     </includedTypes>
     <sourceDataStores>
         <DataStore>
-            <id>surveymarks</id>
+            <id>position_timeseries</id>
             <parameters>
                 <Parameter>
                     <name>dbtype</name>
@@ -59,8 +59,8 @@
     </targetTypes>
     <typeMappings>
         <FeatureTypeMapping>
-            <sourceDataStore>surveymarks</sourceDataStore>
-            <sourceType>positions_simple</sourceType>
+            <sourceDataStore>position_timeseries</sourceDataStore>
+            <sourceType>position_timeseries</sourceType>
             <targetElement>geo:PositionTimeSeries</targetElement>
             <attributeMappings>
                 <AttributeMapping>

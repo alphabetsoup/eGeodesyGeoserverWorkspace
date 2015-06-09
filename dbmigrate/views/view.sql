@@ -1,7 +1,7 @@
 drop view sites_simple;
 drop view sitelogs_simple;
-drop view positions_simple;
-drop view coordinateinstances_simple;
+drop view position_timeseries;
+drop view position_timeslice;
 drop view nodes_simple;
 drop view adjustments_simple;
 
@@ -52,12 +52,12 @@ create view nodes_simple as
     join name_type as nt on mn.name_type = nt.name_type
 );
 
-create view positions_simple as
+create view position_timeseries as
 (
     select concat('position_',md.mark_id) as gid, 
     concat('node_',md.mark_id) as at_node, 
     md.mark_id, 
-    ms.status_txt, md.date_mga_avail,
+    md.date_mga_avail,
 
     (
         select 
@@ -71,6 +71,14 @@ create view positions_simple as
 
     (
         select 
+        ms.status_txt
+        from mark_status as ms
+        where md.status = ms.status
+        limit 1
+    ) as status_txt,
+
+    (
+        select 
         ST_SETSRID(ST_POINT(mc.longitude, mc.latitude), datum.d_epsg_code)
         from mark_coordinates as mc
         join datum on datum.d_code = mc.datum_code
@@ -81,10 +89,12 @@ create view positions_simple as
 
     from mark_description as md
 
-    join mark_name as mn on mn.mark_id = md.mark_id
-    join mark_status as ms on ms.status = md.status
-    join name_type as nt on mn.name_type = nt.name_type
+    group by md.mark_id
 );
+-- removed joins
+--  join mark_name as mn on mn.mark_id = md.mark_id
+--  join mark_status as ms on ms.status = md.status
+--  join name_type as nt on mn.name_type = nt.name_type
 
 -- coordinateinstances_simple is, for now, a copy of positions_simple with two modifications:
 -- 1) gid begins with coordinateinstance_, the numerical part of the id is the same
@@ -92,7 +102,7 @@ create view positions_simple as
 -- Both positions_simple and coordinateinstances_simple will later change further, for now,
 -- this is the minimum needed to demonstrate GeoServer feature chaning between positions and
 -- coordinate instances.
-create view coordinateinstances_simple as
+create view position_timeslice as
 (
     select concat('coordinateinstance_',mc.mark_coord_id) as gid, 
     concat('position_',mc.mark_id) as pid, 
